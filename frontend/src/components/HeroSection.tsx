@@ -26,11 +26,11 @@ export default function HeroSection() {
         {/* Animated content */}
         <div className="w-full max-w-5xl mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8">
           {/* Headline */}
-          <div data-aos="fade-down" data-aos-delay="100">
-           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent leading-tight tracking-tight">
+          <div data-aos="fade-down" data-aos-delay="70">
+           <h1 className="text-[23px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent leading-tight tracking-tight">
             Sell on Autopilot.
             <br className="hidden sm:block" />
-            <span className="block sm:inline"> AI Takes Orders While You Sleep.</span>
+            <span className="block sm:inline"> AI Takes Orders While You Rest.</span>
             </h1>
           </div>
 
@@ -38,7 +38,7 @@ export default function HeroSection() {
         
 
           {/* Description */}
-          <div data-aos="fade-up" data-aos-delay="200" className="w-full max-w-3xl mx-auto px-0.5">
+          <div data-aos="fade-up" data-aos-delay="100" className="w-full max-w-3xl mx-auto px-0.5">
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-400 leading-relaxed">
               Connect your WhatsApp, Telegram, or other messaging accounts. Tell us about your business. 
               BotForge's AI instantly learns your context and automatically replies to every customer message 
@@ -49,7 +49,7 @@ export default function HeroSection() {
           {/* Workflow Steps */}
           <div
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="130"
             className="w-full max-w-4xl mx-auto py-4 sm:py-6 md:py-8 px-2"
           >
             <div className="flex flex-row items-center justify-between gap-2 xs:gap-3 sm:gap-4 lg:gap-6">
@@ -95,7 +95,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div
             data-aos="zoom-in"
-            data-aos-delay="400"
+            data-aos-delay="160"
             className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center pt-4 sm:pt-6 md:pt-8 w-full px-2"
           >
             <a
