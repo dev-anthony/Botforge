@@ -26,28 +26,16 @@ function HeaderSection() {
       {/* Desktop Header */}
       <header
         className={`hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl items-center justify-between
-          px-6 py-3 rounded-full border transition-all duration-300
+          px-4  rounded-full border transition-all duration-300
           ${scrolled
-            ? 'bg-white/60 dark:bg-black/60 backdrop-blur-2xl border-black/10 dark:border-white/10 shadow-sm'
-            : 'bg-white/40 dark:bg-black/40 backdrop-blur-xl border-black/10 dark:border-white/10'
+            ? 'bg-white/10 dark:bg-black/10 backdrop-blur-2xl border-black/10 dark:border-white/10 shadow-sm'
+            : 'bg-white/10 dark:bg-black/10 backdrop-blur-xl border-black/10 dark:border-white/10'
           }`}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center">
-            {/* Inline bot icon */}
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <rect x="3" y="5" width="10" height="8" rx="2" stroke="#00F0FF" strokeWidth="1.2"/>
-              <rect x="5.5" y="7.5" width="2" height="1.5" rx="0.5" fill="#00F0FF"/>
-              <rect x="8.5" y="7.5" width="2" height="1.5" rx="0.5" fill="#00F0FF"/>
-              <line x1="8" y1="5" x2="8" y2="3" stroke="#00F0FF" strokeWidth="1.2" strokeLinecap="round"/>
-              <circle cx="8" cy="2.5" r="0.8" fill="#00F0FF"/>
-              <rect x="6" y="10" width="4" height="1" rx="0.5" fill="#00F0FF" opacity="0.5"/>
-            </svg>
-          </div>
-          <span className="font-mono font-bold text-sm tracking-wide text-black dark:text-white">
-            Bot<span className="text-cyan-400">Forge</span>
-          </span>
+        <div className="flex items-center">
+          
+          <img src="/botforge_logo_clean.svg" alt=""  className='w-50'/>
         </div>
 
         {/* Nav links */}

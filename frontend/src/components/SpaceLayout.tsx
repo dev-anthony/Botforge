@@ -49,27 +49,27 @@ export default function SpaceLayout({ children }: { children: React.ReactNode })
   }, []);
 
   return (
-    <div className="relative min-h-screen" style={{ background: '#050E1A' }}>
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: '#050E1A' }}>
       {/* Stars canvas — covers full scrollable height */}
-      <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
+      <canvas ref={canvasRef} className="fixed top-0 left-0 w-screen h-full pointer-events-none z-0" />
 
       {/* Cyan arc — top of page only */}
-      <div className="fixed top-0 left-0 w-full pointer-events-none z-[1]">
-        <svg viewBox="0 0 1200 300" className="w-full" xmlns="http://www.w3.org/2000/svg">
+      <div className="fixed top-0 left-0 w-screen pointer-events-none z-[1] overflow-hidden">
+        <svg viewBox="0 0 1200 300" className="w-full h-auto" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="arcGlow" cx="50%" cy="0%" r="60%">
               <stop offset="0%" stopColor="#00F0FF" stopOpacity="0.3" />
               <stop offset="100%" stopColor="#00F0FF" stopOpacity="0" />
             </radialGradient>
           </defs>
-          <ellipse cx="600" cy="-80" rx="700" ry="240" fill="none" stroke="#00F0FF" strokeWidth="1" opacity="0.45" />
-          <ellipse cx="600" cy="-80" rx="700" ry="240" fill="url(#arcGlow)" />
-          <ellipse cx="600" cy="-80" rx="580" ry="190" fill="none" stroke="#00F0FF" strokeWidth="0.4" opacity="0.2" />
+          <ellipse cx="600" cy="-80" rx="650" ry="240" fill="none" stroke="#00F0FF" strokeWidth="1" opacity="0.45" />
+          <ellipse cx="600" cy="-80" rx="650" ry="240" fill="url(#arcGlow)" />
+          <ellipse cx="600" cy="-80" rx="550" ry="190" fill="none" stroke="#00F0FF" strokeWidth="0.4" opacity="0.2" />
         </svg>
       </div>
 
       {/* Glass overlay */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[2]"
+      <div className="fixed top-0 left-0 w-screen h-full pointer-events-none z-[2] overflow-hidden"
         style={{ background: 'rgba(5,14,26,0.15)', backdropFilter: 'blur(0.6px)' }} />
 
       {/* Page content */}

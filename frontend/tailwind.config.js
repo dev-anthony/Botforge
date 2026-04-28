@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "480px",
+      },
       colors: {
         "baby-pink": "#FFB6D9",
         "light-blue": "#ADD8E6",
