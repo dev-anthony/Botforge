@@ -42,7 +42,7 @@ export default function HowItWorksSection() {
 
   return (
     <>
-      <section className="relative w-full py-20 sm:py-24 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8">
+      <section className="relative w-full py-16 sm:py-20 md:py-28 lg:py-36 px-4 sm:px-6 md:px-8">
         {/* Section Title */}
         <div
           data-aos="fade-down"
