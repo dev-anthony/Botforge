@@ -1,27 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { ArrowRight, MessageCircle, Zap, Bot } from 'lucide-react';
+import AOS from 'aos';
 
 export default function HeroSection() {
-  const headlineRef = useRef<HTMLDivElement>(null);
-  const subheadlineRef = useRef<HTMLDivElement>(null);
-  const descriptionRef = useRef<HTMLDivElement>(null);
-  const workflowRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const elements = [
-      { ref: headlineRef, delay: 0 },
-      { ref: subheadlineRef, delay: 0.1 },
-      { ref: descriptionRef, delay: 0.2 },
-      { ref: workflowRef, delay: 0.3 },
-      { ref: ctaRef, delay: 0.4 },
-    ];
-
-    elements.forEach(({ ref, delay }) => {
-      if (ref.current) {
-        ref.current.style.animation = `slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${delay}s both`;
-      }
-    });
+    AOS.refresh();
   }, []);
 
   return (
@@ -39,12 +22,12 @@ export default function HeroSection() {
         }
       `}</style>
 
-      <section className="relative w-full flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-20 sm:py-24 md:py-32 lg:py-40 min-h-screen">
+      <section className="relative w-full flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-20 sm:pb-24 md:pb-32 min-h-screen">
         {/* Animated content */}
         <div className="w-full max-w-5xl mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8">
           {/* Headline */}
-          <div ref={headlineRef}>
-           <h1 className="text-sm xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent leading-tight tracking-tight">
+          <div data-aos="fade-down" data-aos-delay="100">
+           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent leading-tight tracking-tight">
             Sell on Autopilot.
             <br className="hidden sm:block" />
             <span className="block sm:inline"> AI Takes Orders While You Sleep.</span>
@@ -55,7 +38,7 @@ export default function HeroSection() {
         
 
           {/* Description */}
-          <div ref={descriptionRef} className="w-full max-w-3xl mx-auto px-0.5">
+          <div data-aos="fade-up" data-aos-delay="200" className="w-full max-w-3xl mx-auto px-0.5">
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-400 leading-relaxed">
               Connect your WhatsApp, Telegram, or other messaging accounts. Tell us about your business. 
               BotForge's AI instantly learns your context and automatically replies to every customer message 
@@ -65,52 +48,54 @@ export default function HeroSection() {
 
           {/* Workflow Steps */}
           <div
-            ref={workflowRef}
+            data-aos="fade-up"
+            data-aos-delay="300"
             className="w-full max-w-4xl mx-auto py-4 sm:py-6 md:py-8 px-2"
           >
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 md:gap-6">
+            <div className="flex flex-row items-center justify-between gap-2 xs:gap-3 sm:gap-4 lg:gap-6">
               {/* Step 1 */}
               <div className="flex-1 flex flex-col items-center text-center">
-                <div className="mb-3 p-3 sm:p-4 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
-                  <MessageCircle className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 text-cyan-400 mx-auto" />
+                <div className="mb-2 xs:mb-3 p-2 xs:p-3 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
+                  <MessageCircle className="w-5 xs:w-5 sm:w-6 h-5 xs:h-5 sm:h-6 text-cyan-400 mx-auto" />
                 </div>
-                <h3 className="font-semibold text-white text-xs sm:text-sm md:text-base mb-1">Connect Accounts</h3>
-                <p className="text-xs sm:text-xs md:text-sm text-gray-400 leading-snug">Link your messaging platforms</p>
+                <h3 className="font-semibold text-white text-xs xs:text-xs sm:text-sm mb-0.5">Connect Accounts</h3>
+                <p className="text-xs text-gray-400 leading-tight hidden xs:block">Link your messaging</p>
               </div>
 
               {/* Arrow 1 */}
-              <div className="hidden sm:flex items-center justify-center">
-                <ArrowRight className="w-5 h-5 text-cyan-400/60" />
+              <div className="flex items-center justify-center flex-shrink-0">
+                <ArrowRight className="w-4 xs:w-4 sm:w-5 h-4 xs:h-4 sm:h-5 text-cyan-400/60" />
               </div>
 
               {/* Step 2 */}
               <div className="flex-1 flex flex-col items-center text-center">
-                <div className="mb-3 p-3 sm:p-4 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
-                  <Zap className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 text-cyan-400 mx-auto" />
+                <div className="mb-2 xs:mb-3 p-2 xs:p-3 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
+                  <Zap className="w-5 xs:w-5 sm:w-6 h-5 xs:h-5 sm:h-6 text-cyan-400 mx-auto" />
                 </div>
-                <h3 className="font-semibold text-white text-xs sm:text-sm md:text-base mb-1">Describe Business</h3>
-                <p className="text-xs sm:text-xs md:text-sm text-gray-400 leading-snug">Tell us what you do</p>
+                <h3 className="font-semibold text-white text-xs xs:text-xs sm:text-sm mb-0.5">Describe Business</h3>
+                <p className="text-xs text-gray-400 leading-tight hidden xs:block">Tell us what</p>
               </div>
 
               {/* Arrow 2 */}
-              <div className="hidden sm:flex items-center justify-center">
-                <ArrowRight className="w-5 h-5 text-cyan-400/60" />
+              <div className="flex items-center justify-center flex-shrink-0">
+                <ArrowRight className="w-4 xs:w-4 sm:w-5 h-4 xs:h-4 sm:h-5 text-cyan-400/60" />
               </div>
 
               {/* Step 3 */}
               <div className="flex-1 flex flex-col items-center text-center">
-                <div className="mb-3 p-3 sm:p-4 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
-                  <Bot className="w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 text-cyan-400 mx-auto" />
+                <div className="mb-2 xs:mb-3 p-2 xs:p-3 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
+                  <Bot className="w-5 xs:w-5 sm:w-6 h-5 xs:h-5 sm:h-6 text-cyan-400 mx-auto" />
                 </div>
-                <h3 className="font-semibold text-white text-xs sm:text-sm md:text-base mb-1">AI Replies 24/7</h3>
-                <p className="text-xs sm:text-xs md:text-sm text-gray-400 leading-snug">Instant customer support</p>
+                <h3 className="font-semibold text-white text-xs xs:text-xs sm:text-sm mb-0.5">AI Replies 24/7</h3>
+                <p className="text-xs text-gray-400 leading-tight hidden xs:block">Instant support</p>
               </div>
             </div>
           </div>
 
           {/* CTA Buttons */}
           <div
-            ref={ctaRef}
+            data-aos="zoom-in"
+            data-aos-delay="400"
             className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center pt-4 sm:pt-6 md:pt-8 w-full px-2"
           >
             <a

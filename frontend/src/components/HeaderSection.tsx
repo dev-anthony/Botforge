@@ -28,8 +28,8 @@ function HeaderSection() {
         className={`hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl items-center justify-between
           px-4  rounded-full border transition-all duration-300
           ${scrolled
-            ? 'bg-white/10 dark:bg-black/10 backdrop-blur-2xl border-black/10 dark:border-white/10 shadow-sm'
-            : 'bg-white/10 dark:bg-black/10 backdrop-blur-xl border-black/10 dark:border-white/10'
+            ? 'bg-white/10  border-black/10 dark:border-white/10 shadow-sm'
+            : 'bg-white/10  border-black/10 dark:border-white/10'
           }`}
       >
         {/* Logo */}

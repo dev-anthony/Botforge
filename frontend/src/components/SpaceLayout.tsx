@@ -16,11 +16,11 @@ export default function SpaceLayout({ children }: { children: React.ReactNode })
     }
 
     function initStars() {
-      stars = Array.from({ length: 280 }, () => ({
+      stars = Array.from({ length: 600 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         r: Math.random() * 1.4 + 0.2,
-        speed: Math.random() * 0.35 + 0.08,
+        speed: Math.random() * 0.5 + 0.1,
         opacity: Math.random() * 0.7 + 0.2,
         twinkle: Math.random() * Math.PI * 2,
       }));
