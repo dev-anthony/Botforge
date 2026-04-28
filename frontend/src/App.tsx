@@ -1,15 +1,12 @@
+// app/layout.tsx or App.tsx
+import SpaceLayout from './components/SpaceLayout';
+import HeaderSection from './components/HeaderSection';
 
-
-import React from 'react'
-import { LandingPage } from './components'
-
-
-function App() {
+export default function App() {
   return (
-    <main>
-      <LandingPage />
-    </main>
-  )
+    <SpaceLayout>
+      <HeaderSection />
+      {/* all your sections go here */}
+    </SpaceLayout>
+  );
 }
-
-export default App

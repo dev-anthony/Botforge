@@ -27,7 +27,7 @@ export const LandingPage: React.FC = () => {
       id: 'header',
       title: 'Navigation',
       component: <HeaderSection />,
-      gridClass: 'col-span-1 row-span-2',
+      gridClass: 'col-span-3 row-span-1',
     },
     {
       id: 'hero',
