@@ -58,8 +58,8 @@ export default function HeroSection() {
                 <div className="mb-2 xs:mb-3 p-2 xs:p-3 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
                   <MessageCircle className="w-5 xs:w-5 sm:w-6 h-5 xs:h-5 sm:h-6 text-cyan-400 mx-auto" />
                 </div>
-                <h3 className="font-semibold text-white text-xs xs:text-xs sm:text-sm mb-0.5">Connect Accounts</h3>
-                <p className="text-xs text-gray-400 leading-tight hidden xs:block">Link your messaging</p>
+                <h3 className="font-semibold text-white text-[13px] xs:text-xs sm:text-sm mb-0.5">Connect Accounts</h3>
+                <p className="text-[12px] xs:text-xs sm:text-xs text-gray-400 leading-tight hidden xs:block">Link your messaging</p>
               </div>
 
               {/* Arrow 1 */}
@@ -72,8 +72,8 @@ export default function HeroSection() {
                 <div className="mb-2 xs:mb-3 p-2 xs:p-3 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
                   <Zap className="w-5 xs:w-5 sm:w-6 h-5 xs:h-5 sm:h-6 text-cyan-400 mx-auto" />
                 </div>
-                <h3 className="font-semibold text-white text-xs xs:text-xs sm:text-sm mb-0.5">Describe Business</h3>
-                <p className="text-xs text-gray-400 leading-tight hidden xs:block">Tell us what</p>
+                <h3 className="font-semibold text-white text-[13px] xs:text-xs sm:text-sm mb-0.5">Describe Business</h3>
+                <p className="text-[12px] xs:text-xs sm:text-xs text-gray-400 leading-tight hidden xs:block">Tell us what</p>
               </div>
 
               {/* Arrow 2 */}
@@ -86,8 +86,8 @@ export default function HeroSection() {
                 <div className="mb-2 xs:mb-3 p-2 xs:p-3 rounded-lg bg-gradient-to-br from-cyan-400/20 to-cyan-400/5 border border-cyan-400/30">
                   <Bot className="w-5 xs:w-5 sm:w-6 h-5 xs:h-5 sm:h-6 text-cyan-400 mx-auto" />
                 </div>
-                <h3 className="font-semibold text-white text-xs xs:text-xs sm:text-sm mb-0.5">AI Replies 24/7</h3>
-                <p className="text-xs text-gray-400 leading-tight hidden xs:block">Instant support</p>
+                <h3 className="font-semibold text-white text-[13px] xs:text-xs sm:text-sm mb-0.5">AI Replies 24/7</h3>
+                <p className="text-[12px] xs:text-xs sm:text-xs text-gray-400 leading-tight hidden xs:block">Instant support</p>
               </div>
             </div>
           </div>
