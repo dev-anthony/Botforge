@@ -49,7 +49,7 @@ export default function FeaturesSection() {
     <section className="relative w-full py-10 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8">
 
       {/* Section Title */}
-      <div data-aos="fade-down" className="text-center max-w-4xl mx-auto mb-6 sm:mb-10">
+      <div data-aos="fade-down" data-aos-duration="300" className="text-center max-w-4xl mx-auto mb-6 sm:mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-[var(--color-cyan-200)] to-[var(--color-cyan-400)] bg-clip-text text-transparent mb-3">
           Built for Productivity
         </h2>
@@ -65,7 +65,8 @@ export default function FeaturesSection() {
             <div
               key={idx}
               data-aos="fade-up"
-              data-aos-delay={`${idx * 50}`}
+              data-aos-delay={`${idx * 25}`}
+              data-aos-duration="300"
               className="group p-4 sm:p-5 rounded-lg border border-[var(--color-cyan-400-20)] bg-gradient-to-br from-[var(--color-cyan-400-5)] to-[var(--color-cyan-400-2)] hover:border-[var(--color-cyan-400-30)] hover:bg-[var(--color-cyan-400-10)] transition-all duration-300"
             >
               <div className="flex items-start gap-3">

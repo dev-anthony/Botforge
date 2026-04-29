@@ -9,7 +9,7 @@ export default function CTASection() {
 
   return (
     <section className="relative w-full py-10 sm:py-14 md:py-16 px-4 sm:px-6 md:px-8">
-      <div data-aos="zoom-in" className="max-w-4xl mx-auto">
+      <div data-aos="zoom-in" data-aos-duration="300" className="max-w-4xl mx-auto">
         <div className="p-8 sm:p-10 rounded-2xl border border-[var(--color-cyan-400-30)] bg-gradient-to-r from-[var(--color-cyan-400-5)] via-[var(--color-cyan-400-2)] to-[var(--color-cyan-400-5)] backdrop-blur-sm text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             Ready to Automate?
