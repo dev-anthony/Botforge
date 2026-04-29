@@ -39,7 +39,7 @@ export default function DashboardSection() {
       name: 'Support Bot',
       platform: 'Telegram',
       logo: '📱',
-      status: 'online',
+      status: 'offline',
       messages: 342,
     },
     {
@@ -60,11 +60,11 @@ export default function DashboardSection() {
 
   return (
     <>
-      <section className="relative w-full py-20 sm:py-24 md:py-32 lg:py-40 px-4 sm:px-6 md:px-8">
+      <section className="relative w-full py-16 sm:py-20 md:py-24 lg:py-32 px-2 sm:px-4 md:px-6">
         {/* Section Title */}
         <div
           data-aos="fade-down"
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20"
+          className="text-center max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent mb-4 sm:mb-6">
             Powerful Dashboard
@@ -75,20 +75,20 @@ export default function DashboardSection() {
         </div>
 
         {/* Single Unified Dashboard Container */}
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div
-            data-aos="zoom-in"
+            data-aos="fade-up"
             data-aos-delay="100"
             className="p-4 sm:p-6 md:p-8 rounded-2xl border-2 border-cyan-400/30 bg-gradient-to-br from-cyan-400/8 via-cyan-400/3 to-transparent backdrop-blur-xl shadow-2xl"
           >
             {/* Dashboard Header */}
-            <div className="mb-6 pb-4 border-b border-cyan-400/20">
+            <div className="mb-6 pb-2 border-b border-cyan-400/20">
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-1">Dashboard Overview</h3>
               <p className="text-xs sm:text-sm text-gray-400">Real-time analytics of your bot performance</p>
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-2">
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
@@ -109,14 +109,14 @@ export default function DashboardSection() {
             </div>
 
             {/* Analytics Chart with Line Graph */}
-            <div className="mt-6 pt-6 border-t border-cyan-400/20">
-              <div className="mb-4">
+            <div className="mt-3 pt-3 border-t border-cyan-400/20">
+              <div className="mb-2">
                 <p className="text-sm font-semibold text-white mb-1">Message Analytics</p>
                 <p className="text-xs text-gray-400">Incoming messages vs Outgoing responses</p>
               </div>
 
               {/* Legend */}
-              <div className="flex flex-wrap gap-3 mb-4">
+              <div className="flex flex-wrap gap-3 mb-2">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-cyan-400"></div>
                   <span className="text-xs sm:text-sm text-gray-300">Incoming Messages</span>
@@ -128,7 +128,7 @@ export default function DashboardSection() {
               </div>
 
               {/* Line Chart */}
-              <div className="h-32 sm:h-40 rounded-lg bg-gradient-to-br from-cyan-400/5 to-cyan-400/2 border border-cyan-400/10 p-4 flex items-end justify-between gap-1 relative">
+              <div className="h-25 sm:h-20 rounded-lg bg-gradient-to-br from-cyan-400/5 to-cyan-400/2 border border-cyan-400/10 p-4 flex items-end justify-between gap-1 relative">
                 {/* Grid lines */}
                 <div className="absolute inset-0 rounded-lg flex flex-col justify-between p-4 pointer-events-none">
                   {[0, 1, 2, 3].map((i) => (
@@ -189,21 +189,21 @@ export default function DashboardSection() {
             </div>
 
             {/* Active Bots Section Inside Dashboard */}
-            <div className="mt-6 pt-6 border-t border-cyan-400/20">
-              <h4 className="text-lg font-semibold text-white mb-4">Your Active Bots</h4>
+            <div className="mt-3 pt-3 border-t border-cyan-400/20">
+              <h4 className="text-lg font-semibold text-white mb-2">Your Active Bots</h4>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 {bots.map((bot, idx) => (
                   <div
                     key={idx}
-                    className="p-4 sm:p-5 rounded-lg border border-cyan-400/20 bg-cyan-400/5 hover:bg-cyan-400/10 transition-all duration-300"
+                    className="p-2 sm:p-3 rounded-lg border border-cyan-400/20 bg-cyan-400/5 hover:bg-cyan-400/10 transition-all duration-300"
                   >
                     {/* Bot Header */}
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-2">
-                        <div className="text-2xl sm:text-3xl">{bot.logo}</div>
+                        <div className="text-xl sm:text-xl">{bot.logo}</div>
                         <div>
-                          <h4 className="text-sm sm:text-base font-semibold text-white">{bot.name}</h4>
+                          <h4 className="text-sm sm:text-sm font-semibold text-white">{bot.name}</h4>
                           <p className="text-xs text-gray-400">{bot.platform}</p>
                         </div>
                       </div>
@@ -214,16 +214,16 @@ export default function DashboardSection() {
                     </div>
 
                     {/* Divider */}
-                    <div className="h-px bg-gradient-to-r from-cyan-400/20 to-transparent mb-3"></div>
+                    <div className="h-px bg-gradient-to-r from-cyan-400/20 to-transparent mb-2"></div>
 
                     {/* Bot Stats */}
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <MessageCircle className="w-3 h-3 text-cyan-400/70" />
+                          <MessageCircle className="w-2 h-2 text-cyan-400/70" />
                           <p className="text-xs text-gray-400">Messages</p>
                         </div>
-                        <p className="text-base font-bold text-white">{bot.messages}</p>
+                        <p className="text-sm font-bold text-white">{bot.messages}</p>
                       </div>
 
                       {/* Quick Stats */}
@@ -240,7 +240,7 @@ export default function DashboardSection() {
                     </div>
 
                     {/* View Details Button */}
-                    <button className="w-full mt-3 py-2 px-3 rounded-lg text-xs sm:text-sm font-medium text-cyan-400 border border-cyan-400/30 hover:bg-cyan-400/10 transition-all duration-300">
+                    <button className="w-full mt-2 py-1 px-3 rounded-lg text-xs sm:text-sm font-medium text-cyan-400 border border-cyan-400/30 hover:bg-cyan-400/10 transition-all duration-300">
                       View Details
                     </button>
                   </div>
@@ -253,4 +253,3 @@ export default function DashboardSection() {
     </>
   );
 }
-

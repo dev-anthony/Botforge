@@ -4,6 +4,9 @@ import HeaderSection from './components/HeaderSection';
 import HeroSection from './components/HeroSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import DashboardSection from './components/DashboardSection';
+import FeaturesSection from './components/FeaturesSection';
+import CTASection from './components/CTASection';
+import FooterSection from './components/FooterSection';
 
 export default function App() {
   return (
@@ -12,6 +15,9 @@ export default function App() {
       <HeroSection />
       <HowItWorksSection />
       <DashboardSection />
+      <FeaturesSection />
+      <CTASection/>
+      <FooterSection/>
       {/* all your sections go here */}
     </SpaceLayout>
   );
