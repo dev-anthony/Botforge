@@ -1,3 +1,26 @@
 @import "tailwindcss";
 
+:root {
+  /* ── Cyan palette ───────────────────────────── */
+  --color-cyan-200:  #a5f3fc;
+  --color-cyan-400:  #22d3ee;
+  --color-cyan-500:  #06b6d4;
 
+  /* ── Cyan-400 opacity variants ──────────────── */
+  --color-cyan-400-2:      rgba(34, 211, 238, 0.02);
+  --color-cyan-400-5:      rgba(34, 211, 238, 0.05);
+  --color-cyan-400-8:      rgba(34, 211, 238, 0.08);
+  --color-cyan-400-10:     rgba(34, 211, 238, 0.10);
+  --color-cyan-400-20:     rgba(34, 211, 238, 0.20);
+  --color-cyan-400-30:     rgba(34, 211, 238, 0.30);
+  --color-cyan-400-50:     rgba(34, 211, 238, 0.50);
+  --color-cyan-400-shadow: rgba(34, 211, 238, 0.50);
+
+  /* ── Grays ──────────────────────────────────── */
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+
+  /* ── Status / chart colors ──────────────────── */
+  --color-green-400:   #4ade80;
+  --color-emerald-400: #34d399;
+}
