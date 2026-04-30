@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { ArrowRight, MessageCircle, Zap, Bot } from 'lucide-react';
 import AOS from 'aos';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   useEffect(() => {
@@ -95,13 +96,13 @@ export default function HeroSection() {
             data-aos-duration="300"
             className="flex flex-row gap-2 sm:gap-3 justify-center pt-4 sm:pt-6 w-full px-2"
           >
-            <a
-              href="#get-started"
+            <Link
+             to="/signin"
               className="group inline-flex items-center justify-center gap-1 sm:gap-2 px-5 sm:px-8 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[var(--color-cyan-400)] to-[var(--color-cyan-500)] text-black font-semibold text-xs sm:text-sm hover:shadow-lg hover:[box-shadow:0_10px_20px_var(--color-cyan-400-shadow)] transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap"
             >
               Start for Free
               <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
 
             <a
               href="#demo"

@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import type { SignUpData } from '../../types/auth';
 import { VerificationModal } from '../../components/VerificationModal';
+import SpaceLayout from '../../components/SpaceLayout';
+import { ArrowLeft} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function SignUpPage() {
   const navigate = useNavigate();
@@ -25,7 +28,6 @@ export function SignUpPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       await signUp(formData);
       setVerificationEmail(formData.email);
@@ -38,126 +40,137 @@ export function SignUpPage() {
   const handleVerify = async (code: string) => {
     try {
       setVerificationError(null);
-      await verifyEmail({
-        email: verificationEmail,
-        code,
-      });
-      // Navigate to dashboard or home after successful verification
+      await verifyEmail({ email: verificationEmail, code });
       navigate('/dashboard');
     } catch (err) {
-      const message = err instanceof Error ? err.message : 'Verification failed';
-      setVerificationError(message);
+      setVerificationError(err instanceof Error ? err.message : 'Verification failed');
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
-          <p className="text-gray-600">Join us to get started</p>
+    <SpaceLayout>
+      <div className="min-h-screen flex items-center justify-center px-4 ">
+        <Link 
+         to="/" 
+        className='absolute top-5 left-5'>
+          <ArrowLeft className="text-[var(--color-cyan-400)] w-4 h-4"/>
+        </Link>
+
+        <div
+          className="w-full max-w-md p-4"
+          
+        >
+          {/* Logo */}
+          <div className="mb-4 ">
+           <div className="flex items-center justify-center">
+          <img src="/botforge_logo_clean.svg" alt="" className="w-40" />
         </div>
-
-        {/* Error Message */}
-        {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-red-700 text-sm">{error}</p>
-          </div>
-        )}
-
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Full Name */}
-          <div>
-            <label htmlFor="fullName" className="block text-gray-700 font-semibold mb-2">
-              Full Name
-            </label>
-            <input
-              id="fullName"
-              name="fullName"
-              type="text"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              placeholder="John Doe"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
+            <h1 className="text-xl font-semibold text-white mt-2 text-center mb-1 leading-relaxed">Create Account</h1>
+            <p className="text-sm text-[var(--color-gray-400)] text-center leading-relaxed">Join us to get started</p>
           </div>
 
-          {/* Email */}
-          <div>
-            <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="you@example.com"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
+          {/* Error */}
+          {error && (
+            <div className="mb-5 p-3 rounded-lg border border-red-500/30 bg-red-500/10">
+              <p className="text-red-400 text-sm">{error}</p>
+            </div>
+          )}
 
-          {/* Password */}
-          <div>
-            <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              placeholder="••••••••"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Full Name */}
+            <div>
+              <label htmlFor="fullName" className="block text-sm font-medium text-[var(--color-gray-400)] mb-1.5">
+                Full Name
+              </label>
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                placeholder="John Doe"
+                required
+                className="w-full px-4 py-2.5 rounded-lg text-sm text-white placeholder-[var(--color-gray-500)] border border-[var(--color-cyan-400-20)] focus:outline-none focus:border-[var(--color-cyan-400-50)] transition-colors"
+                style={{ background: 'rgba(34,211,238,0.05)' }}
+              />
+            </div>
 
-          {/* Confirm Password */}
-          <div>
-            <label htmlFor="confirmPassword" className="block text-gray-700 font-semibold mb-2">
-              Confirm Password
-            </label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              value={formData.confirmPassword}
-              onChange={handleInputChange}
-              placeholder="••••••••"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-[var(--color-gray-400)] mb-1.5">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="you@example.com"
+                required
+                className="w-full px-4 py-2.5 rounded-lg text-sm text-white placeholder-[var(--color-gray-500)] border border-[var(--color-cyan-400-20)] focus:outline-none focus:border-[var(--color-cyan-400-50)] transition-colors"
+                style={{ background: 'rgba(34,211,238,0.05)' }}
+              />
+            </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors mt-6"
-          >
-            {isLoading ? 'Creating Account...' : 'Sign Up'}
-          </button>
-        </form>
+            {/* Password */}
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-[var(--color-gray-400)] mb-1.5">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder="••••••••"
+                required
+                className="w-full px-4 py-2.5 rounded-lg text-sm text-white placeholder-[var(--color-gray-500)] border border-[var(--color-cyan-400-20)] focus:outline-none focus:border-[var(--color-cyan-400-50)] transition-colors"
+                style={{ background: 'rgba(34,211,238,0.05)' }}
+              />
+            </div>
 
-        {/* Sign In Link */}
-        <div className="mt-6 text-center">
-          <p className="text-gray-600">
+            {/* Confirm Password */}
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-[var(--color-gray-400)] mb-1.5">
+                Confirm Password
+              </label>
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                placeholder="••••••••"
+                required
+                className="w-full px-4 py-2.5 rounded-lg text-sm text-white placeholder-[var(--color-gray-500)] border border-[var(--color-cyan-400-20)] focus:outline-none focus:border-[var(--color-cyan-400-50)] transition-colors"
+                style={{ background: 'rgba(34,211,238,0.05)' }}
+              />
+            </div>
+
+            {/* Submit */}
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full mt-2 py-2.5 rounded-full font-semibold text-sm text-black transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ background: `linear-gradient(to right, var(--color-cyan-400), var(--color-cyan-500))` }}
+            >
+              {isLoading ? 'Creating Account…' : 'Sign Up'}
+            </button>
+          </form>
+
+          {/* Footer link */}
+          <p className="mt-6 text-center text-sm text-[var(--color-gray-400)]">
             Already have an account?{' '}
-            <a href="/signin" className="text-blue-600 hover:text-blue-700 font-semibold">
+            <a href="/signin" className="text-[var(--color-cyan-400)] hover:opacity-80 font-semibold transition-opacity">
               Sign In
             </a>
           </p>
         </div>
       </div>
 
-      {/* Verification Modal */}
       <VerificationModal
         isOpen={showVerificationModal}
         email={verificationEmail}
@@ -167,6 +180,6 @@ export function SignUpPage() {
         isLoading={isLoading}
         error={verificationError}
       />
-    </div>
+    </SpaceLayout>
   );
 }

@@ -9,6 +9,12 @@ export interface SignInData {
   email: string;
   password: string;
 }
+export interface ForgotPasswordData {
+  email: string;
+}
+export interface ChangePasswordData {
+  password: string;
+}
 
 export interface VerificationData {
   email: string;

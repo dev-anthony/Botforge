@@ -1,10 +1,12 @@
 import { createContext, useReducer, useCallback, type ReactNode } from 'react';
-import type { AuthState, User, SignUpData, SignInData, VerificationData } from '../types/auth';
+import type { AuthState, User, SignUpData, SignInData, VerificationData, ForgotPasswordData,ChangePasswordData } from '../types/auth';
 
 interface AuthContextType extends AuthState {
   signUp: (data: SignUpData) => Promise<void>;
   signIn: (data: SignInData) => Promise<void>;
   verifyEmail: (data: VerificationData) => Promise<void>;
+  forgotPassword: (data: ForgotPasswordData) => Promise<void>;
+  changePassword: (data: ChangePasswordData) => Promise<void>;
   signOut: () => void;
   clearError: () => void;
   setAuthStep: (step: AuthState['authStep']) => void;
@@ -132,6 +134,68 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+   const forgotPassword = useCallback(async (data: ForgotPasswordData) => {
+    try {
+      dispatch({ type: 'SET_LOADING', payload: true });
+      dispatch({ type: 'SET_ERROR', payload: null });
+
+      // TODO: Call your backend API
+      // const response = await fetch('/api/auth/forgotpassword', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(data),
+      // });
+
+      // if (!response.ok) {
+      //   const error = await response.json();
+      //   throw new Error(error.message || 'Sign in failed');
+      // }
+
+      // const { user, token } = await response.json();
+      // localStorage.setItem('authToken', token);
+      // dispatch({ type: 'SET_USER', payload: user });
+      // dispatch({ type: 'SET_AUTH_STEP', payload: 'idle' });
+
+      console.log('email:', data);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'forgot password failed';
+      dispatch({ type: 'SET_ERROR', payload: message });
+      throw error;
+    } finally {
+      dispatch({ type: 'SET_LOADING', payload: false });
+    }
+  }, []);
+   const changePassword = useCallback(async (data: ChangePasswordData) => {
+    try {
+      dispatch({ type: 'SET_LOADING', payload: true });
+      dispatch({ type: 'SET_ERROR', payload: null });
+
+      // TODO: Call your backend API
+      // const response = await fetch('/api/auth/forgotpassword', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(data),
+      // });
+
+      // if (!response.ok) {
+      //   const error = await response.json();
+      //   throw new Error(error.message || 'Sign in failed');
+      // }
+
+      // const { user, token } = await response.json();
+      // localStorage.setItem('authToken', token);
+      // dispatch({ type: 'SET_USER', payload: user });
+      // dispatch({ type: 'SET_AUTH_STEP', payload: 'idle' });
+
+      console.log('password:', data);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'change password failed';
+      dispatch({ type: 'SET_ERROR', payload: message });
+      throw error;
+    } finally {
+      dispatch({ type: 'SET_LOADING', payload: false });
+    }
+  }, []);
   const verifyEmail = useCallback(async (data: VerificationData) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
@@ -163,6 +227,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       dispatch({ type: 'SET_LOADING', payload: false });
     }
   }, []);
+  
 
   const signOut = useCallback(() => {
     // TODO: Call your backend API to invalidate token
@@ -174,10 +239,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     ...state,
     signUp,
     signIn,
+    forgotPassword,
+    changePassword,
     verifyEmail,
     signOut,
     clearError,
     setAuthStep,
+  
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

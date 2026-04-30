@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import type { SignInData } from '../../types/auth';
+import SpaceLayout from '../../components/SpaceLayout';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
 export function SignInPage() {
   const navigate = useNavigate();
   const { signIn, isLoading, error } = useAuth();
-  const [formData, setFormData] = useState<SignInData>({
-    email: '',
-    password: '',
-  });
+  const [formData, setFormData] = useState<SignInData>({ email: '', password: '' });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -18,10 +18,8 @@ export function SignInPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       await signIn(formData);
-      // Navigate to dashboard or home after successful sign in
       navigate('/dashboard');
     } catch (err) {
       console.error('Sign in error:', err);
@@ -29,88 +27,102 @@ export function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
-          <p className="text-gray-600">Sign in to your account</p>
+    <SpaceLayout>
+      <div className="min-h-screen flex items-center justify-center px-4 ">
+         <Link 
+         to="/" 
+        className='absolute top-5 left-5'>
+          <ArrowLeft className="text-[var(--color-cyan-400)] w-4 h-4"/>
+        </Link>
+        <div
+          className="w-full max-w-md  p-4"
+         
+        >
+          {/* Logo */}
+          <div className="mb-8 text-center">
+            <div className="flex items-center justify-center">
+          <img src="/botforge_logo_clean.svg" alt="" className="w-40" />
         </div>
-
-        {/* Error Message */}
-        {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-red-700 text-sm">{error}</p>
-          </div>
-        )}
-
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Email */}
-          <div>
-            <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="you@example.com"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
+            <h1 className="text-xl font-semibold text-white mt-2 mb-1 leading-relaxed">Welcome Back</h1>
+            <p className="text-sm text-[var(--color-gray-400)] leading-relaxed">Sign in to your account</p>
           </div>
 
-          {/* Password */}
-          <div>
-            <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              placeholder="••••••••"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
+          {/* Error */}
+          {error && (
+            <div className="mb-5 p-3 rounded-lg border border-red-500/30 bg-red-500/10">
+              <p className="text-red-400 text-sm">{error}</p>
+            </div>
+          )}
 
-          {/* Remember Me & Forgot Password */}
-          <div className="flex items-center justify-between text-sm">
-            <label className="flex items-center text-gray-700">
-              <input type="checkbox" className="mr-2 rounded" />
-              Remember me
-            </label>
-            <a href="/forgot-password" className="text-blue-600 hover:text-blue-700 font-semibold">
-              Forgot password?
-            </a>
-          </div>
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-[var(--color-gray-400)] mb-1.5">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="you@example.com"
+                required
+                className="w-full px-4 py-2.5 rounded-lg text-sm text-white placeholder-[var(--color-gray-500)] border border-[var(--color-cyan-400-20)] focus:outline-none focus:border-[var(--color-cyan-400-50)] transition-colors"
+                style={{ background: 'rgba(34,211,238,0.05)' }}
+              />
+            </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors mt-6"
-          >
-            {isLoading ? 'Signing In...' : 'Sign In'}
-          </button>
-        </form>
+            {/* Password */}
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-[var(--color-gray-400)] mb-1.5">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                placeholder="••••••••"
+                required
+                className="w-full px-4 py-2.5 rounded-lg text-sm text-white placeholder-[var(--color-gray-500)] border border-[var(--color-cyan-400-20)] focus:outline-none focus:border-[var(--color-cyan-400-50)] transition-colors"
+                style={{ background: 'rgba(34,211,238,0.05)' }}
+              />
+            </div>
 
-        {/* Sign Up Link */}
-        <div className="mt-6 text-center">
-          <p className="text-gray-600">
+            {/* Remember me / Forgot */}
+            <div className="flex items-center justify-between text-sm pt-1">
+              <label className="flex items-center gap-2 text-[var(--color-gray-400)] cursor-pointer">
+                <input type="checkbox" className="rounded accent-[var(--color-cyan-400)]" />
+                Remember me
+              </label>
+              <a href="/forgot-password" className="text-[var(--color-cyan-400)] hover:opacity-80 font-medium transition-opacity">
+                Forgot password?
+              </a>
+            </div>
+
+            {/* Submit */}
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full mt-2 py-2.5 rounded-full font-semibold text-sm text-black transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ background: `linear-gradient(to right, var(--color-cyan-400), var(--color-cyan-500))` }}
+            >
+              {isLoading ? 'Signing In…' : 'Sign In'}
+            </button>
+          </form>
+
+          {/* Footer link */}
+          <p className="mt-6 text-center text-sm text-[var(--color-gray-400)]">
             Don't have an account?{' '}
-            <a href="/signup" className="text-blue-600 hover:text-blue-700 font-semibold">
+            <a href="/signup" className="text-[var(--color-cyan-400)] hover:opacity-80 font-semibold transition-opacity">
               Sign Up
             </a>
           </p>
         </div>
       </div>
-    </div>
+    </SpaceLayout>
   );
 }

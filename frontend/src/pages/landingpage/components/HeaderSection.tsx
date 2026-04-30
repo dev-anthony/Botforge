@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link} from 'react-router-dom';
 
 function HeaderSection() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,12 +49,12 @@ function HeaderSection() {
         </nav>
 
         {/* CTA */}
-        <a
-          href="#get-started"
+        <Link
+          to='/signin'
           className="text-sm font-semibold px-5 py-2 rounded-full bg-[var(--color-cyan-400)] text-black hover:bg-[var(--color-cyan-200)] transition-all duration-200 hover:scale-105 active:scale-95"
         >
           Get started
-        </a>
+        </Link>
       </header>
 
       {/* ── Mobile Header ────────────────────────── */}
@@ -70,8 +71,8 @@ function HeaderSection() {
         >
 
           {/* Logo */}
-          <div className="flex items-center w-40">
-            <img src="/botforge_logo_clean.svg" alt="" />
+          <div className="">
+            <img src="/botforge_logo_clean.svg" alt="bot-logo"  className='w-40'/>
           </div>
 
           {/* Hamburger */}
@@ -100,13 +101,13 @@ function HeaderSection() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#get-started"
+          <Link
+            to='/signin'
             onClick={() => setIsOpen(false)}
             className="mt-1 text-sm font-semibold text-center px-5 py-2.5 rounded-full bg-[var(--color-cyan-400)] text-black hover:bg-[var(--color-cyan-200)] transition-all"
           >
             Get started
-          </a>
+          </Link>
         </nav>
 
         {/* Backdrop */}
