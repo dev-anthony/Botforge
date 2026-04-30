@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Import Link
 import AOS from 'aos';
 
 export default function CTASection() {
@@ -18,13 +19,14 @@ export default function CTASection() {
             Join BotForge to manage and automate your customer replies with intelligent messaging bots
           </p>
 
-          <a
-            href="#get-started"
+          {/* Changed <a> to <Link> */}
+          <Link
+            to="/signin" 
             className="inline-flex items-center gap-2 px-7 sm:px-9 py-3 rounded-full bg-gradient-to-r from-[var(--color-cyan-400)] to-[var(--color-cyan-500)] text-black font-semibold text-sm sm:text-base hover:shadow-lg hover:[box-shadow:0_10px_20px_var(--color-cyan-400-shadow)] transition-all duration-300 hover:scale-105 active:scale-95"
           >
             Get Started
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
