@@ -4,14 +4,12 @@ import SpaceLayout from '../../../components/SpaceLayout'
 import { ArrowLeft } from 'lucide-react'
 import { useAuth } from '../../../hooks/useAuth'
 import type { ForgotPasswordData, ChangePasswordData } from '../../../types/auth'
-import { useNavigate } from 'react-router-dom'
 
 interface ForgotPasswordProps {
   onBack?: () => void;
 }
 
 function ForgotPassword({ onBack }: ForgotPasswordProps) {
-  const navigate = useNavigate()
   const { forgotPassword, changePassword, isLoading, error } = useAuth()
 
   const [step, setStep] = useState<'email' | 'reset'>('email')
@@ -39,7 +37,7 @@ function ForgotPassword({ onBack }: ForgotPasswordProps) {
     setConfirmError('')
     try {
       await changePassword(passwordData)
-      navigate('/signin')
+      onBack?.() // ✅ go back to sign-in state instead of navigating
     } catch (err) {
       console.error('Change password error:', err)
     }
