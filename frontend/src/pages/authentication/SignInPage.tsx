@@ -5,11 +5,13 @@ import type { SignInData } from '../../types/auth';
 import SpaceLayout from '../../components/SpaceLayout';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import ForgotPassword from './ForgotPassword/ForgotPassword';
 
 export function SignInPage() {
   const navigate = useNavigate();
   const { signIn, isLoading, error } = useAuth();
   const [formData, setFormData] = useState<SignInData>({ email: '', password: '' });
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -26,23 +28,22 @@ export function SignInPage() {
     }
   };
 
+  if (showForgotPassword) {
+    return <ForgotPassword onBack={() => setShowForgotPassword(false)} />;
+  }
+
   return (
     <SpaceLayout>
       <div className="min-h-screen flex items-center justify-center px-4 ">
-         <Link 
-         to="/" 
-        className='absolute top-5 left-5'>
-          <ArrowLeft className="text-[var(--color-cyan-400)] w-4 h-4"/>
+        <Link to="/" className="absolute top-5 left-5">
+          <ArrowLeft className="text-[var(--color-cyan-400)] w-4 h-4" />
         </Link>
-        <div
-          className="w-full max-w-md  p-4"
-         
-        >
+        <div className="w-full max-w-md p-4">
           {/* Logo */}
           <div className="mb-8 text-center">
             <div className="flex items-center justify-center">
-          <img src="/botforge_logo_clean.svg" alt="" className="w-40" />
-        </div>
+              <img src="/botforge_logo_clean.svg" alt="" className="w-40" />
+            </div>
             <h1 className="text-xl font-semibold text-white mt-2 mb-1 leading-relaxed">Welcome Back</h1>
             <p className="text-sm text-[var(--color-gray-400)] leading-relaxed">Sign in to your account</p>
           </div>
@@ -98,9 +99,13 @@ export function SignInPage() {
                 <input type="checkbox" className="rounded accent-[var(--color-cyan-400)]" />
                 Remember me
               </label>
-              <a href="/forgot-password" className="text-[var(--color-cyan-400)] hover:opacity-80 font-medium transition-opacity">
+              <button
+                type="button"
+                onClick={() => setShowForgotPassword(true)}
+                className="text-[var(--color-cyan-400)] hover:opacity-80 font-medium transition-opacity"
+              >
                 Forgot password?
-              </a>
+              </button>
             </div>
 
             {/* Submit */}
@@ -117,9 +122,9 @@ export function SignInPage() {
           {/* Footer link */}
           <p className="mt-6 text-center text-sm text-[var(--color-gray-400)]">
             Don't have an account?{' '}
-            <a href="/signup" className="text-[var(--color-cyan-400)] hover:opacity-80 font-semibold transition-opacity">
+            <Link to="/signup" className="text-[var(--color-cyan-400)] hover:opacity-80 font-semibold transition-opacity">
               Sign Up
-            </a>
+            </Link>
           </p>
         </div>
       </div>

@@ -1,13 +1,16 @@
 // ForgotPassword.tsx
 import React, { useState } from 'react'
 import SpaceLayout from '../../../components/SpaceLayout'
-import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { useAuth } from '../../../hooks/useAuth'
 import type { ForgotPasswordData, ChangePasswordData } from '../../../types/auth'
 import { useNavigate } from 'react-router-dom'
 
-function ForgotPassword() {
+interface ForgotPasswordProps {
+  onBack?: () => void;
+}
+
+function ForgotPassword({ onBack }: ForgotPasswordProps) {
   const navigate = useNavigate()
   const { forgotPassword, changePassword, isLoading, error } = useAuth()
 
@@ -59,9 +62,13 @@ function ForgotPassword() {
   return (
     <SpaceLayout>
       <div className="min-h-screen flex items-center justify-center px-4">
-        <Link to="/" className="absolute top-5 left-5">
+        <button
+          type="button"
+          onClick={onBack}
+          className="absolute top-5 left-5"
+        >
           <ArrowLeft className="text-[var(--color-cyan-400)] w-4 h-4" />
-        </Link>
+        </button>
 
         <div className="w-full max-w-md p-4">
           {/* Logo */}
