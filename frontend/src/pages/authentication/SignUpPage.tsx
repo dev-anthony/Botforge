@@ -164,9 +164,9 @@ export function SignUpPage() {
           {/* Footer link */}
           <p className="mt-6 text-center text-sm text-[var(--color-gray-400)]">
             Already have an account?{' '}
-            <a href="/signin" className="text-[var(--color-cyan-400)] hover:opacity-80 font-semibold transition-opacity">
+            <Link to="/signin" className="text-[var(--color-cyan-400)] hover:opacity-80 font-semibold transition-opacity">
               Sign In
-            </a>
+            </Link>
           </p>
         </div>
       </div>

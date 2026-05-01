@@ -5,7 +5,7 @@ import type { SignInData } from '../../types/auth';
 import SpaceLayout from '../../components/SpaceLayout';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import ForgotPassword from './ForgotPassword/ForgotPassword';
+import ForgotPassword from './component/ForgotPassword';
 
 export function SignInPage() {
   const navigate = useNavigate();
